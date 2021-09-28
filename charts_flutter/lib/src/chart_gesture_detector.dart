@@ -19,6 +19,7 @@ import 'package:flutter/material.dart'
     show
         BuildContext,
         GestureDetector,
+        MouseRegion,
         RenderBox,
         ScaleEndDetails,
         ScaleStartDetails,
