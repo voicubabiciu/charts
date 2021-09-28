@@ -62,8 +62,10 @@ class ChartGestureDetector {
     // gestures.
     _listeningForLongPress = desiredGestures.contains(GestureType.onLongPress);
 
-    return new GestureDetector(
-      child: chartContainer,
+    return GestureDetector(
+      child: MouseRegion(
+          child: chartContainer,
+          onHover: (e) => onHover(e.position.dx, e.position.dy)),
       onTapDown: wantTapDown ? onTapDown : null,
       onTapUp: wantTap ? onTapUp : null,
       onScaleStart: wantDrag ? onScaleStart : null,
@@ -86,6 +88,12 @@ class ChartGestureDetector {
       });
     }
   }
+   void onHover(double x, y) {
+    final container = _containerResolver();
+    _lastTapPoint = new Point(x, y);
+    container.gestureProxy.onHover(_lastTapPoint);
+  }
+
 
   void onTapUp(TapUpDetails d) {
     _longPressTimer?.cancel();
