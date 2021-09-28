@@ -88,12 +88,12 @@ class ChartGestureDetector {
       });
     }
   }
-   void onHover(double x, y) {
+
+  void onHover(double x, y) {
     final container = _containerResolver();
-    _lastTapPoint = new Point(x, y);
+    _lastTapPoint = Point(x, y);
     container.gestureProxy.onHover(_lastTapPoint);
   }
-
 
   void onTapUp(TapUpDetails d) {
     _longPressTimer?.cancel();
