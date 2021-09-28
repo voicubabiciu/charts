@@ -92,7 +92,7 @@ class ChartGestureDetector {
   void onHover(double x, y) {
     final container = _containerResolver();
     _lastTapPoint = Point(x, y);
-    container.gestureProxy.onHover(_lastTapPoint);
+    container.gestureProxy.onHover(_lastTapPoint!);
   }
 
   void onTapUp(TapUpDetails d) {
